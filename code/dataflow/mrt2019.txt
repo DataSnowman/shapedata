@@ -1,0 +1,8 @@
+let
+  Source = Lakehouse.Contents([]),
+  #"Navigation 1" = Source{[workspaceId = "36b8782e-f3b1-43d2-99bf-d8d33714fec8"]}[Data],
+  #"Navigation 2" = #"Navigation 1"{[lakehouseId = "1aaf851f-2cbb-425d-a772-557e39681357"]}[Data],
+  #"Navigation 3" = #"Navigation 2"{[Id = "mrt2019", ItemKind = "Table"]}[Data],
+  #"Renamed columns" = Table.RenameColumns(#"Navigation 3", {{"日期", "date"}, {"時段", "hour"}, {"進站", "origin"}, {"出站", "destination"}, {"人次", "passenger_count"}})
+in
+  #"Renamed columns"

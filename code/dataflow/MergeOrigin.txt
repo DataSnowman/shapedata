@@ -1,0 +1,6 @@
+let
+  Source = Table.NestedJoin(mrt2019, {"origin"}, MRTstations, {"Chinese"}, "MRTstations", JoinKind.LeftOuter),
+  #"Expanded MRTstations" = Table.ExpandTableColumn(Source, "MRTstations", {"Name"}, {"Name"}),
+  #"Renamed columns" = Table.RenameColumns(#"Expanded MRTstations", {{"Name", "OriginNameAlpha"}})
+in
+  #"Renamed columns"

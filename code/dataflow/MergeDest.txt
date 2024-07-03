@@ -1,0 +1,8 @@
+let
+  Source = Table.NestedJoin(MergeOrigin, {"destination"}, MRTstations, {"Chinese"}, "MRTstations", JoinKind.LeftOuter),
+  #"Expanded MRTstations" = Table.ExpandTableColumn(Source, "MRTstations", {"Name"}, {"Name"}),
+  #"Renamed columns" = Table.RenameColumns(#"Expanded MRTstations", {{"Name", "DestinationNameAlpha"}}),
+  #"Added custom" = Table.AddColumn(#"Renamed columns", "Trip", each [OriginNameAlpha] & " to " & [DestinationNameAlpha]),
+  #"Changed column type" = Table.TransformColumnTypes(#"Added custom", {{"Trip", type text}})
+in
+  #"Changed column type"
