@@ -1,0 +1,1 @@
+select count(*) from [testing].[dbo].[mrt2019all]
