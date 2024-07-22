@@ -5,11 +5,10 @@ https://en.wikipedia.org/wiki/List_of_railway_and_metro_stations_in_Taiwan
 
 Welcome to the Shaping data with Microsoft Fabric hands-on experience workshop.  The purpose of the workshop is to bring you up to speed on some of the data shaping tools in the Lakehouse, Data Engineering, Data Factory (Data Integration), Data Science, and Power BI experiences of Microsoft Fabric.  You will be using pre-configured trial resources in this workshop.  Each of you will recieve a userid and password to access the resources.  Please consult your instuctor if you have any questions or blockers.
 
-The Workshop is broken up into two parts:
-
-    - Overview and Demo
-
-    - Hands-on Labs
+The Workshop is broken up into three parts:
+* Overview and Demo
+* Hands-on Labs
+* Wrap up
 
 Prior to starting the hands-on activites you will recieve a userid and password to access the Fabric resources from your instructor.
 
