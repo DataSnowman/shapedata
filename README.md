@@ -63,7 +63,24 @@ The empty lakehouse should look like this with empty Tables and Files folders
 ![mrttablesfiles](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrttablesfiles.png)
 
 
-## Shape 1 - Get zipped files with a Data Factory pipeline and unzip them in OneLake
+## Shape 1 - Get zipped files with a Data Factory pipeline and unzip them into the Lakehouse OneLake
+
+In the Lakehouse click Get Data and select New data pipline
+
+![newdp](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newdp.png)
+
+Name the pipeline `copyandunzip` and click `Create`
+
+![copyandunzip](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/copyandunzip.png)
+
+Select `New` on the top menu, `Azure` on the middle menu, then select `Azure Data Lake Storage`
+
+![adls](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/adls.png)
+
+This will open the `Connection settings`.  Cut and paste the following SAS Token into the URL.
+
+
+
 
 
 
