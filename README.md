@@ -31,12 +31,11 @@ Enter the password provided by the instructor and click `Sign in`
 
 If this dialog pops up Click on `Ask later` button
 
-![asklater](https://raw.githubusercontent.com/datasnowman/shapedata/blob/main/images/asklater.png)
+![asklater](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/asklater.png)
 
 This should land you on a home page that looks like this:
 
-![landing](https://raw.githubusercontent.com/
-datasnowman/shapedata/main/images/landing.png)
+![landing](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/landing.png)
 
 ## Shape 1 
 
