@@ -26,7 +26,6 @@ Enter the userid (Email) assigned for you to use during the workshop and click `
 ![login1](https://raw.githubusercontent.com/datasnowman/shapedata/
 main/images/login1.png)
 
-
 Enter the password provided by the instructor and click `Sign in`
 
 ![login2](https://raw.githubusercontent.com/
@@ -35,9 +34,7 @@ main/images/login2.png)
 
 If this dialog pops up Click on `Ask later` button
 
-![asklater](https://raw.githubusercontent.com/
-datasnowman/shapedata/
-main/images/asklater.png)
+![asklater](https://github.com/DataSnowman/shapedata/blob/main/images/asklater.png)
 
 This should land you on a home page that looks like this:
 
