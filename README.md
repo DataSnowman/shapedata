@@ -77,9 +77,22 @@ Select `New` on the top menu, `Azure` on the middle menu, then select `Azure Dat
 
 ![adls](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/adls.png)
 
-This will open the `Connection settings`.  Cut and paste the following SAS Token into the URL.
+This will open the `Connection settings`.  Cut and paste the following URL into the URL field
+
+```
+https://devdays2024westus.dfs.core.windows.net/data/mrt/2019zip/
+```
+
+Set the Authentication kind to `Shared Access Signature (SAS)`
+Cut and paste the following SAS token into the SaS token field
+```
+?sv=2023-11-03&st=2024-07-23T01%3A40%3A38Z&se=2024-09-01T01%3A40%3A00Z&sr=c&sp=rl&sig=8zhxNDI1bEOmRt16%2FZKzASut1Ss4Bt8HmP%2BWMIXf0Ps%3D
+```
 
 
+```
+data/mrt/2019zip/
+```
 
 
 
