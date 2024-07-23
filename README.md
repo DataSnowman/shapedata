@@ -38,11 +38,11 @@ This should land you on a home page that looks like this:
 
 ## Create a new Lakehouse in your Fabric workspace
 
-To get started you can click on any of the experiences on the home page or on the Microsoft Fabric icon in the bottow left corner of the browser.  For example click on `Data Factory`
+To get started you can click on any of the experiences on the home page or on the Microsoft Fabric icon in the bottow left corner of the browser.  For example click on `Data Factory` or `Data Engineering`
 
 ![datafactory](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/datafactory.png)
 
-Now click on Workspaces to find your Fabric workspace.  Please click on the workspace that is the same as you userid (email) i.e. user1 or user2, etc
+Now click on Workspaces to find your Fabric workspace.  Please click on the workspace that is the same as the userid (email i.e. user1 or user2, etc) you logged on as.
 
 ![workspace](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/workspace.png)
 
@@ -50,7 +50,7 @@ When you open the workspace it should be empty and look something like this:
 
 ![user1ws](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/user1ws.png)
 
-Create a new Lakehouse by clicking +New and selecting Lakehouse
+Create a new Lakehouse by clicking `+New` and selecting `Lakehouse`
 
 ![lh1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/lh1.png)
 
@@ -64,6 +64,8 @@ The empty lakehouse should look like this with empty Tables and Files folders
 
 
 ## Shape 1 - Get zipped files with a Data Factory pipeline and unzip them into the Lakehouse OneLake
+
+### Setup the files in the Lakehouse
 
 In the MRT Lakehouse click on the three dots to the right of the Folders icon and select `New subfolder`
 
@@ -107,19 +109,70 @@ The Files should look somehing like this:
 
 ![lhdone](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/lhdone.png)
 
+### Copy and unzip the files into raw subfolder using a Data pipeline
 
+Go back into your workspace and select `+New` and select `More options`
 
-Get Data and select New data pipline
+![moreoptions](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/moreoptions.png)
 
-![newdp](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newdp.png)
+This brings up a list of all the Fabric items.  Find `Data Factory` and click on `Data pipeline`
+
+![datapl](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/datapl.png)
 
 Name the pipeline `copyandunzip` and click `Create`
 
 ![copyandunzip](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/copyandunzip.png)
 
-Select `New` on the top menu, `Azure` on the middle menu, then select `Azure Data Lake Storage`
+Click on the green `Pipeline activity` and select `Copy data`
 
-![1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/1.png)
+![copydata](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/copydata.png)
+
+On the General tab name the Copy activity `copyandunzip`
+
+![generaltab](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/generaltab.png)
+
+Click on the Source tab and click on the Connection dropdown and select `More`
+
+![more](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/more.png)
+
+Select `OneLake data hub` and select your MRT Lakehouse in your workspace (user?)
+
+![sourcecon](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/sourcecon.png)
+
+Browse to the File path: `mrtfiles/2019zip`
+Make sure the `Recursively` checkbox is checked
+
+![sourcefp](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/sourcefp.png)
+
+`Leave the File format` as `Binary`
+but click on the `File format` `Settings` button and select `Zip Deflate (.zip)` and click `OK`
+
+![ffsettings](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/ffsettings.png)
+
+Under the `Advanced` section uncheck the `Preserve zip file name as folder` checkbox
+
+![advanced](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/advanced.png)
+
+Click on the Destination tab and click on the Connection dropdown and select the same `MRT` Lakehouse connection you used in the Source. Browse to the File path: `mrtfiles/raw`.  `Leave the File format` as `Binary`
+ 
+Click on `Run`
+
+![runpl](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/runpl.png)
+
+Click `Save and run`
+
+![saveandrun](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/saveandrun.png)
+
+It should run in about 60 seconds and should look like this when it succeeded
+
+![succeeded](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/succeeded.png)
+
+Check the `raw` folder in the MRT Lakehouse and see if the files are unzipped and in the file.  Should look like this:
+
+![uzraw](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/uzraw.png)
+
+
+
 
 
 
