@@ -65,7 +65,51 @@ The empty lakehouse should look like this with empty Tables and Files folders
 
 ## Shape 1 - Get zipped files with a Data Factory pipeline and unzip them into the Lakehouse OneLake
 
-In the Lakehouse click Get Data and select New data pipline
+In the MRT Lakehouse click on the three dots to the right of the Folders icon and select `New subfolder`
+
+![newsubfolder](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newsubfolder.png)
+
+Name it something like `mrtfiles` and click `Create`
+
+![mrtfiles](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrtfiles.png)
+
+Click on the three dots to the right of the the `mrtfiles` and select `New shortcut`
+
+This will bring up this screen
+
+![newsc](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newsc.png)
+
+Select `Microsoft OneLake` and then select the `mrtdata` Lakehouse and click `Next`
+
+![mrtdatalh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrtdatalh.png)
+
+Select the `2019zip` folder and click `Next`
+
+![2019zip](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/2019zip.png)
+
+Click `Create`
+
+![createsc](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/createsc.png)
+
+The files are now available in your `mrtfiles` subfolder
+
+![scfiles](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/scfiles.png)
+
+Create one more subfolder in the `mrtfiles` folder. Click on the three dots to the right of the `mrtfiles` folders icon and select `New subfolder`
+
+![newsubfolderraw](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newsubfolderraw.png)
+
+Name it something like `raw` and click `Create`
+
+![raw](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/raw.png)
+
+The Files should look somehing like this:
+
+![lhdone](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/lhdone.png)
+
+
+
+Get Data and select New data pipline
 
 ![newdp](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newdp.png)
 
@@ -75,25 +119,7 @@ Name the pipeline `copyandunzip` and click `Create`
 
 Select `New` on the top menu, `Azure` on the middle menu, then select `Azure Data Lake Storage`
 
-![adls](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/adls.png)
-
-This will open the `Connection settings`.  Cut and paste the following URL into the URL field
-
-```
-https://devdays2024westus.dfs.core.windows.net/data/mrt/2019zip/
-```
-
-Set the Authentication kind to `Shared Access Signature (SAS)`
-Cut and paste the following SAS token into the SaS token field
-```
-?sv=2023-11-03&st=2024-07-23T01%3A40%3A38Z&se=2024-09-01T01%3A40%3A00Z&sr=c&sp=rl&sig=8zhxNDI1bEOmRt16%2FZKzASut1Ss4Bt8HmP%2BWMIXf0Ps%3D
-```
-
-
-```
-data/mrt/2019zip/
-```
-
+![1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/1.png)
 
 
 
