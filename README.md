@@ -191,6 +191,43 @@ Click on `Import notebook`under new
 
 ![dehome](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/dehome.png)
 
+Select `Upload`
+
+![uploadnb](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/uploadnb.png)
+
+Navigate to the `LoadMRTfiles.ipynb` file and click `Open`
+
+![open](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/open.png)
+
+Click on `Go to workspace`
+
+![gotows](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/gotows.png)
+
+Click on the `LoadMRTfiles` notebook in your workspace
+
+![clicknb1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/clicknb1.png)
+
+When it opens up click on the pin next to the testing and select `Remove all lakehouses`
+
+![ralh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/ralh.png)
+
+Click continue to unlink it from any old lakehouses it may have been attached to. `Don't worry it is not going to do anything to your Lakehouse, and we will attach to your Lakehouse in the next step`
+
+![ralhcontinue](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/ralhcontinue.png)
+
+Click on `Add` which will bring up this dialog box and choose `Existing lakehouse` and click `Add`
+
+![addlh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/addlh.png)
+
+Click on your MRT Lakehouse for your user and click `Add`
+
+![addmrtlh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/addmrtlh.png)
+
+
+
+
+
+
 
 
 ### Create a New Power BI report
