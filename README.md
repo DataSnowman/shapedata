@@ -12,6 +12,16 @@ The Workshop is broken up into three parts:
 
 Prior to starting the hands-on activites you will recieve a userid and password to access the Fabric resources from your instructor.
 
+While you are waiting please Clone this GitHub repo to your local machine by cutting and pasting and running this command.
+
+    ```    
+    git clone https://github.com/DataSnowman/shapedata.git
+    ```
+`Note` you can also download these repo files by clicking on the green `Code` button and selecting `Download ZIP`
+
+![gitclone](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/gitclone.png)
+
+
 ## Login
 
 In your browser (Incognito, InPrivate, Private) cut and paste this Link
@@ -171,10 +181,15 @@ Check the `raw` folder in the MRT Lakehouse and see if the files are unzipped an
 
 ![uzraw](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/uzraw.png)
 
+## Shape 2 - Load the file(s) to Delta/Parquet tables in the Lakehouse using a Spark Notebook
 
+Navigate to the Data Engineering experience by clicking the bottom left corner and selecting `Data Engineering`
 
+![de](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/de.png)
 
+Click on `Import notebook`under new
 
+![dehome](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/dehome.png)
 
 
 
