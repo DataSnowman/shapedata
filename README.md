@@ -223,7 +223,23 @@ Click on your MRT Lakehouse for your user and click `Add`
 
 ![addmrtlh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/addmrtlh.png)
 
+The notebook should look like this:
 
+* The first cell provides the schema of the incoming csv file
+* The second cell provides the schema of the Delta/Parquet table being loaded
+* The third cell reads the csv, adds a filename column, and formats the date column, then writes to the Delta/Parquet table
+
+Click `Run all`
+
+![runnb](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/runnb.png)
+
+When it completes successfully it should have read the csv file located in the lakehouse Files `Files/mrtfiles/raw/` and created a table called `mrt201912` in the lakehouse Tables `Tables/mrt201912` 
+
+![nbsuccessful](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/nbsuccessful.png)
+
+Navigate back to your MRT Lakehouse and you will be able to see the rows and columns of the `mrt201912` table
+
+![mrt201912](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrt201912.png)
 
 
 
