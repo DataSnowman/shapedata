@@ -1,9 +1,16 @@
 # Workshop for DevDays: Shaping data with Microsoft Fabric hands-on experience
 
-The Taipei Mass Rapid Transit (MRT) MRTstations.csv data is from 
+Welcome to the Shaping data with Microsoft Fabric hands-on experience workshop.  The purpose of the workshop is to bring you up to speed on some of the data shaping tools in the Lakehouse, Data Engineering, Data Factory (Data Integration), Data Science, and Power BI experiences of Microsoft Fabric.  You will be using pre-configured trial resources in this workshop.  Each of you will recieve a userid and password to access the resources.  Please consult your instuctor if you have any questions or blockers.
+
+### Datasets
+
+* Time-based entry and exit statistics of each Taipei MRT station
+https://data.gov.tw/dataset/128506
+
+* The Taipei Mass Rapid Transit (MRT) MRTstations.csv data is from 
 https://en.wikipedia.org/wiki/List_of_railway_and_metro_stations_in_Taiwan
 
-Welcome to the Shaping data with Microsoft Fabric hands-on experience workshop.  The purpose of the workshop is to bring you up to speed on some of the data shaping tools in the Lakehouse, Data Engineering, Data Factory (Data Integration), Data Science, and Power BI experiences of Microsoft Fabric.  You will be using pre-configured trial resources in this workshop.  Each of you will recieve a userid and password to access the resources.  Please consult your instuctor if you have any questions or blockers.
+### Workshop
 
 The Workshop is broken up into three parts:
 * Overview and Demo
