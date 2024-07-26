@@ -298,11 +298,39 @@ Click on the Notebook Name in the upper left corner and change the name to `Coun
 
 You are done shaping data with Notebooks.
 
+## Shape 3 - Query the new table in the SQL Analytics Endpoint and create a view
 
+Back in the Lakehouse click on the Lakehouse dropdown next to the Share button in the top right corner and select `SQL analytic endpoint`
 
+![sqlendpoint](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/sqlendpoint.png)
 
+You now can query the table you created in the Lakehouse using PySpark, but this time using T-SQL.  The SQL analytic endpoint should look like this:
 
+![sae](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/sae.png)
 
+Click on `New SQL query` on the top menu.  Cut and paste the following query
+
+```
+SELECT [日期] as Date, count(*) as Countrows FROM [MRT].[dbo].[mrt201912] 
+GROUP BY [日期]
+```
+Click on `Run` to get the count by date
+
+![countbydate](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/countbydate.png)
+
+Highlight (select) the entire SQL statement and click on `Save as view` 
+
+![highlight](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/highlight.png)
+
+Give the view a name like `rowsbydate` and click `Ok`
+
+![saveasview](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/saveasview.png)
+
+Find the view in the Schemas and click on it to see the data
+
+![rbdview](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/rbdview.png)
+
+We will return to the `SQL analytics endpoint` when we look at Semantic models
 
 
 
