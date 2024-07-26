@@ -248,6 +248,68 @@ Navigate back to your MRT Lakehouse and you will be able to see the rows and col
 
 ![mrt201912](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrt201912.png)
 
+Count the number of rows using Spark SQL in a Notebook.  To do this click on `Open notebook` on the top menu of the Lakehouse and select `New notebook`
+
+![opennb](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/opennb.png)
+
+Click on the three dots to the right of the table and select `Load data > Spark`
+
+![loadddataspark](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/loadddataspark.png)
+
+This will create a new cell in the Notebook with the following Spark SQL in PySpark:
+
+```
+df = spark.sql("SELECT * FROM MRT.mrt201912 LIMIT 1000")
+display(df)
+```
+Click the play button to Run cell.  You should get 1000 rows that look like this:
+
+![limit1000](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/limit1000.png)
+
+Hover between the two cells and click on `+ Code` to add a new cell
+
+![pluscode](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/pluscode.png)
+
+In the bottom right corner of the new cell click on the `PySpark (Python)` dropdown and select `Spark SQL`
+
+![sparksql](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/sparksql.png)
+
+Copy the select statement from the cell below and paste it under the `%%SQL`.  These %% commands are the referred to as magic commands.  Those supported in Fabric Notbooks are: %%pyspark, %%spark, %%csharp, %%sql, %%configure 
+
+```
+SELECT * FROM MRT.mrt201912 LIMIT 1000
+```
+Lets modify the Spark SQL to count the number of rows.  The new statement should be like 
+
+```
+SELECT count(*) FROM MRT.mrt201912
+```
+Click the play button to Run cell.
+
+![countstar](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/countstar.png)
+  
+You should get the following number of rows: 7639920
+
+![count](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/count.png)
+
+Click on the Notebook Name in the upper left corner and change the name to `CountRows`
+
+![nbname](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/nbname.png)
+
+You are done shaping data with Notebooks.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
