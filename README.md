@@ -332,7 +332,9 @@ Find the view in the Schemas and click on it to see the data
 
 We will return to the `SQL analytics endpoint` when we look at Semantic models
 
-## Shape 4 - Get and Merge Data with Dataflow Gen2 and load it into a Lakehouse destination
+## Shape 4 - Get Data and Merge Data with Dataflow Gen2 and load it into a Lakehouse destination
+
+### Get MRTstations.csv
 
 Back in the Lakehouse click on `+ New` and select `Dataflow Gen2`
 
@@ -352,7 +354,7 @@ https://raw.githubusercontent.com/DataSnowman/shapedata/main/data/MRTstations.cs
 ```
 Preview the file and click `Create`
 
-![textcsv](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/textcsv.png)
+![previewfile](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/previewfile.png)
 
 Click on `Transform` on the ribbon and click `Use first row as headers`
 This will move the first row that contains the headers to be headers
@@ -436,25 +438,83 @@ Now open up you `SQL analytics endpoint` and you will see the new table.
 
 ![mrtsae](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrtsae.png)
 
-Also open te Lakehouse and you should see the new table
+Also open the Lakehouse and you should see the new table
 
 ![mrtlh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrtlh.png)
 
-**Need to create the image above**
+### Get dayofweek.csv
+
+Back in the Lakehouse click on `+ New` and select `Dataflow Gen2`
+
+![newdf](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newdf.png)
+
+Click on `Get data > TEXT/CSV`
+
+![textcsv](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/textcsv.png)
+
+Paste the following link to the `File path or URL`
+Data gateway: (none)
+Authentication kind: Anonymous
+Privacy level: None
+Click `Next` 
+
+```
+https://raw.githubusercontent.com/DataSnowman/shapedata/main/data/dayofweek.csv
+```
+
+Preview the file and click `Create`
+
+![previewfile2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/previewfile2.png)
+
+Click on `Home` on the ribbon and click the `ABC` next to the date column header and select `Date/Time`
+
+![datetime](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/datetime.png)
+
+This changes the date column datatype to `Date/Time` to match the date column in the `mrt201912` table
+
+![dtformat](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/dtformat.png)
+
+Click in the top left corner of the Dataflow and change the name to `dayofweek` and hit `Enter` or `Return`
+
+![dfname2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/dfname2.png)
+
+Next you want to set the `Data destination` by clicking the `+` in the bottom right corner above the `Publish` button
+Select `Lakehouse`
+
+![datadestination](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/datadestination.png)
+
+Leave the connection as `Lakehouse (none)`and click `Next`
+
+Find your workspace and Lakehouse.  With New table selected use the Table name `dayofweek` and click `Next`
+
+![target2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/target2.png)
+
+Accept the default and click `Save settings`
+
+![settings2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/settings2.png)
+
+Click `Publish` button in the bottom right corner
+
+![publish](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/publish.png)
+
+Back in your workspace you will see the Dataflow published and refreshing
+
+![refresh2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/refresh2.png)
+
+You can check the `Refresh history`
+
+![refreshhistory2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/refreshhistory2.png)
+
+![rhs2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/rhs2.png)
+
+Open the Lakehouse and you should see the new table
+
+![mrtlh2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrtlh2.png)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+**Need to show how all the items can be in the same pipeline**
 
 
 
