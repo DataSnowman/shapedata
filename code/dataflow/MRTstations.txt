@@ -1,9 +1,7 @@
 let
-  Source = Lakehouse.Contents([]),
-  #"Navigation 1" = Source{[workspaceId = "36b8782e-f3b1-43d2-99bf-d8d33714fec8"]}[Data],
-  #"Navigation 2" = #"Navigation 1"{[lakehouseId = "1aaf851f-2cbb-425d-a772-557e39681357"]}[Data],
-  #"Navigation 3" = #"Navigation 2"{[Id = "MRTstations", ItemKind = "Table"]}[Data],
-  #"Replaced value" = Table.ReplaceValue(#"Navigation 3", "板橋", "BL板橋", Replacer.ReplaceText, {"Chinese"}),
+  Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/DataSnowman/shapedata/main/data/MRTstations.csv"), [Delimiter = ",", Columns = 5, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+  #"Replaced value" = Table.ReplaceValue(#"Promoted headers", "板橋", "BL板橋", Replacer.ReplaceText, {"Chinese"}),
   #"Replaced value 1" = Table.ReplaceValue(#"Replaced value", "大橋頭", "大橋頭站", Replacer.ReplaceText, {"Chinese"}),
   #"Replaced value 2" = Table.ReplaceValue(#"Replaced value 1", "頭前莊", "頭前庄", Replacer.ReplaceText, {"Chinese"})
 in

@@ -332,6 +332,121 @@ Find the view in the Schemas and click on it to see the data
 
 We will return to the `SQL analytics endpoint` when we look at Semantic models
 
+## Shape 4 - Get and Merge Data with Dataflow Gen2 and load it into a Lakehouse destination
+
+Back in the Lakehouse click on `+ New` and select `Dataflow Gen2`
+
+![newdf](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newdf.png)
+
+Click on `Get data > TEXT/CSV`
+
+![textcsv](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/textcsv.png)
+
+Paste the following link to the `File path or URL`
+Authentication kind: Anonymous
+Privacy level: None
+Click `Next` 
+
+```
+https://raw.githubusercontent.com/DataSnowman/shapedata/main/data/MRTstations.csv
+```
+Preview the file and click `Create`
+
+![textcsv](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/textcsv.png)
+
+Click on `Transform` on the ribbon and click `Use first row as headers`
+This will move the first row that contains the headers to be headers
+
+![usefirstrow](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/usefirstrow.png)
+
+Click on `Home` on the ribbon and click `Advanced editor`
+
+![home](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/home.png)
+
+When the `Advanced editor` opens you will the the M language that is used in Power BI, and Power Query in Excel
+
+![adveditor](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/adveditor.png)
+
+Delete the code in the editor and copy and paste the following code
+
+```
+let
+  Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/DataSnowman/shapedata/main/data/MRTstations.csv"), [Delimiter = ",", Columns = 5, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+  #"Replaced value" = Table.ReplaceValue(#"Promoted headers", "板橋", "BL板橋", Replacer.ReplaceText, {"Chinese"}),
+  #"Replaced value 1" = Table.ReplaceValue(#"Replaced value", "大橋頭", "大橋頭站", Replacer.ReplaceText, {"Chinese"}),
+  #"Replaced value 2" = Table.ReplaceValue(#"Replaced value 1", "頭前莊", "頭前庄", Replacer.ReplaceText, {"Chinese"})
+in
+  #"Replaced value 2"
+```
+The pasted code should look like this.  Click `OK`
+
+`Note` the code above is also in the repo in the `MRTstations.txt` file under `code/dataflow`
+
+![replace](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/replace.png)
+
+The new code added 3 steps to the `Applied steps
+
+![appliedsteps](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/appliedsteps.png)
+
+This was just a way to add the 3 replace steps without using the UI of the Dataflow
+
+Click on the gear on the last applied step
+
+![replaceui](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/replaceui.png)
+
+Click `OK` to close the dialog with no changes
+
+This shows the GUI for changing the values in a column with and new value.  We did this because the source data we loaded in the Notebook has different labels for the Chinese name of the station.  We need to merge the two table together and we want to match these values.
+
+Click in the top left corner of the Dataflow and change the name to `MRTstations` and hit `Enter` or `Return`
+
+![dfname](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/dfname.png)
+
+Next you want to set the `Data destination` by clicking the `+` in the bottom right corner above the `Publish` button
+Select `Lakehouse`
+
+![datadestination](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/datadestination.png)
+
+Leave the connection as `Lakehouse (none)`and click `Next`
+
+Find your workspace and Lakehouse.  With New table selected use the Table name `MRTstations` and click `Next`
+
+![target](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/target.png)
+
+Accept the default and click `Save settings`
+
+![settings](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/settings.png)
+
+Click `Publish` button in the bottom right corner
+
+![publish](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/publish.png)
+
+Back in your workspace you will see the Dataflow published and refreshing
+
+![refresh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/refresh.png)
+
+You can check the `Refresh history`
+
+![refreshhistory](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/refreshhistory.png)
+
+![rhs](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/rhs.png)
+
+Now open up you `SQL analytics endpoint` and you will see the new table.
+
+![mrtsae](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrtsae.png)
+
+Also open te Lakehouse and you should see the new table
+
+![mrtlh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrtlh.png)
+
+**Need to create the image above**
+
+
+
+
+
+
 
 
 
