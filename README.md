@@ -511,7 +511,165 @@ Open the Lakehouse and you should see the new table
 
 ![mrtlh2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrtlh2.png)
 
+### Merge mrt201912 and MRTstations
 
+`MergeStationNames`
+
+Back in the Lakehouse click on `+ New` and select `Dataflow Gen2`
+
+![newdf](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newdf.png)
+
+Click on `Get data > More`
+
+![getdatamore](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/getdatamore.png)
+
+Click on `OneLake data hub` and select your MRT Lakehouse
+
+![onelakedh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/onelakedh.png)
+
+Select the `mrt201912` and `MRTstations` tables.  Click `Create`
+
+![choosedata](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/choosedata.png)
+
+The new Dataflow should look like this
+
+![twotabs](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/twotabs.png)
+
+Click on the `mrt201912` query and select `Advanced Editor` 
+
+![adveditormrt201912](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/adveditormrt201912.png)
+
+Delete the last two rows of the code
+
+```
+  #"Navigation 1" = Source{[Id = "mrt201912", ItemKind = "Table"]}[Data]
+in
+  #"Navigation 1"
+```
+
+![mcode1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mcode1.png)
+
+![mcode2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mcode2.png)
+
+Then past the following code to replace the last two lines
+
+```
+  #"Navigation 1" = Source{[Id = "mrt201912", ItemKind = "Table"]}[Data],
+  #"Renamed columns" = Table.RenameColumns(#"Navigation 1", {{"日期", "date"}, {"時段", "hour"}, {"進站", "origin"}, {"出站", "destination"}, {"人次", "passenger_count"}})
+in
+  #"Renamed columns"
+```
+
+![mcode3](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mcode3.png)
+
+This replaces all the headings with english alpha characters so I can read them since I can't read the orthodox characters 
+
+![alphaheaders](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/alphaheaders.png)
+
+If you prefer not do do this you can keep the heading as is
+
+With the `mrt201912` query selected click on `Combine>Merge queries>Merge queries as new`
+
+![combine1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/combine1.png)
+
+Select `MRTstations` as the `Right table for merge` and select the `origin` column in the Left table and the `Chinese` column in the Right table.  
+Click `OK`
+
+![mergeorigin](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mergeorigin.png)
+
+Scroll right until you get to the right most column `MRTstations`.  Click the double arrow icon to bring up the columns in the merged right table.  Just select `Name` and click `OK`
+
+![originname](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/originname.png)
+
+Click on the `Name` column header the change the name to `OriginName`
+
+![nametooriginname](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/nametooriginname.png)
+
+Also rename the Merge query to `MergeOrigin`
+
+![mergeoriginquery](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mergeoriginquery.png)
+
+Now we are going to do the same thing again but this time merge to the destination using the new `MergeOrigin` query and `MRTstations` query
+
+With the `MergeOrigin` query selected click on `Combine>Merge queries>Merge queries as new`
+
+![combine2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/combine2.png)
+
+Select `MRTstations` as the `Right table for merge` and select the `destination` column in the Left table and the `Chinese` column in the Right table.  
+Click `OK`
+
+![mergedest](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mergedest.png)
+
+Scroll right until you get to the right most column `MRTstations`.  Click the double arrow icon to bring up the columns in the merged right table.  Just select `Name` and click `OK`
+
+![destname](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/destname.png)
+
+Click on the `Name` column header the change the name to `DestinationName`
+
+![nametodestname](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/nametodestname.png)
+
+Also rename the Merge query to `MergeDest`
+
+![mergedestquery](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mergedestquery.png)
+
+One more thing to add before we Publish.  Create a new column called `Trip` that concatenates the `Origin to Destination` 
+
+Click on `Add column` on the ribbon and click `Custom column`
+
+![customcolumn](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/customcolumn.png)
+
+Name the column `Trip` and cut and paste this formula into the Custom column formula and click `OK`
+
+```
+[OriginName] & " to " & [DestinationName]
+```
+
+![customcolformula](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/customcolformula.png)
+
+The new column should look like this
+
+![tripcolumn](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/tripcolumn.png)
+
+Click in the top left corner of the Dataflow and change the name to `MergeTrips` and hit `Enter` or `Return`
+
+![mergetripsdf](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mergetripsdf.png)
+
+With the `MergeDest` query selected next you want to set the `Data destination` by clicking the `+` in the bottom right corner above the `Publish` button
+Select `Lakehouse`
+
+![datadestination](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/datadestination.png)
+
+Leave the connection as `Lakehouse (none)`and click `Next`
+
+Find your workspace and Lakehouse.  With New table selected use the Table name `Trips` and click `Next`
+
+![tripstarget](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/tripstarget.png)
+
+Accept the default and click `Save settings`
+
+![tripsettings](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/tripsettings.png)
+
+Click `Publish` button in the bottom right corner
+
+![publish](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/publish.png)
+
+Back in your workspace you will see the Dataflow published and refreshing
+
+![triprefresh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/triprefresh.png)
+
+You can check the `Refresh history`
+
+![tripsrefreshhistory](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/tripsrefreshhistory.png)
+
+![tripsrhs](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/tripsrhs.png)
+
+Now open up you `SQL analytics endpoint` and you will see the new table.
+
+![tripssae](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/tripssae.png)
+
+Also open the Lakehouse and you should see the new table
+
+![tripslh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/tripslh.png)
 
 
 **Need to show how all the items can be in the same pipeline**

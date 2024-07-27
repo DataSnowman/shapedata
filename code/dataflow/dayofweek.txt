@@ -1,0 +1,6 @@
+﻿let
+  Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/DataSnowman/shapedata/main/data/dayofweek.csv"), [Delimiter = ",", Columns = 2, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"date", type datetime}})
+in
+  #"Changed column type"
