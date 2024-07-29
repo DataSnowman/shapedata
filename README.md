@@ -778,8 +778,58 @@ If you look at the items in your workspace you will see the TripAnalysis report
 
 ## Shape 7 - Automating it all in a pipeline
 
+Wouldn't it be nice to automate much of this shaping so it can updated on a regular basis.  To do this we can create data pipelines that copy data with a pipeline copy activity --> load data with a Notebook and --> load and merge data in a dataflow
+
+We can open the `copyandunzip`and click on `Save as`
+
+![saveascopyandunzip](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/saveascopyandunzip.png)
+
+Name it something like `runall` and click `Save`
+
+![runall](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/runall.png)
+
+Click on the `Notebook` activity on the menu bar
+
+![runallnb](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/runallnb.png)
+
+Under the Notebook settings select the `LoadMRTfiles` Notebook we created earlier
+
+![nbsettings](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/nbsettings.png)
+
+Drag the green checkmark on the copy activity to the Notebook activity.  This means if the Copy activity runs successfully then the Notebook activity runs.
+
+![onsuccessnb](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/onsuccessnb.png)
+
+Click on the `Dataflow` activity on the menu bar
+
+![runalldf1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/runalldf1.png)
+
+Under the Dataflow settings select the `MRTstations` Dataflow we created earlier
+
+![dfsettings1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/dfsettings1.png)
+
+Drag the green checkmark on the Notebook activity to the Dataflow activity.  This means if the Notebook activity runs successfully then the Dataflow activity runs.
+
+![onsuccessdf1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/onsuccessdf1.png)
+ 
+Click on the `Dataflow` activity on the menu bar
+
+![runalldf2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/runalldf2.png)
+
+Under the Dataflow settings select the `MergeTrips` Dataflow we created earlier
+
+![dfsettings2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/dfsettings2.png)
+
+Drag the green checkmark on the Dataflow1 activity to the Dataflow2 activity.  This means if the Dataflow1 activity runs successfully then the Dataflow2 activity runs.
+
+![onsuccessdf2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/onsuccessdf2.png)
+
+Click on Save
+
+![saverunall](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/saverunall.png)
 
 
-**Need to show how all the items can be in the same pipeline**
+`Don't do this now but if you run the pipeline it will re-run many of the things you created today`
+
 
 ## Congrats you have finished the workshop!
