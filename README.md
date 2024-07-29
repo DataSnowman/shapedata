@@ -21,9 +21,10 @@ Prior to starting the hands-on activites you will recieve a userid and password 
 
 While you are waiting please Clone this GitHub repo to your local machine by cutting and pasting and running this command.
 
-    ```    
-    git clone https://github.com/DataSnowman/shapedata.git
-    ```
+```    
+git clone https://github.com/DataSnowman/shapedata.git
+```
+
 `Note` you can also download these repo files by clicking on the green `Code` button and selecting `Download ZIP`
 
 ![gitclone](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/gitclone.png)
