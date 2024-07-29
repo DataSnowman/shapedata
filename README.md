@@ -671,20 +671,115 @@ Also open the Lakehouse and you should see the new table
 
 ![tripslh](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/tripslh.png)
 
+## Shape 5 - Create a Semantic Model
 
-**Need to show how all the items can be in the same pipeline**
+Now that you have completed the shaping of a data in using a bunch of Fabric experiences let's create a simple two table `New semantic model` that includes the `Trips` table and the `dayofweek` table
 
+Navigate back to your MRT Lakehouse and make sure you are able to see the `Trips` table and the `dayofweek` table
 
+![mrtlhnsm](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrtlhnsm.png)
 
-### Create a New Power BI report
+On the top menu bar click on `New semantic model` 
+
+![nsm](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/nsm.png)
+
+In the Direct Lake semantic model name enter `MrtTrips` and select the `Trips` and the `dayofweek` tables
+Click on the `Confirm` button
+
+![dlsm](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/dlsm.png)
+
+The semantic model should look something like this:
+
+![ttdlsm](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/ttdlsm.png)
+
+Click on `Manage relationships`
+
+![manarel](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/manarel.png)
+
+Click on `+New relationship`
+
+![newrel](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newrel.png)
+
+For the From table select `Trips` and click on the `date` column
+For the To table select `dayofweek` and click on the `date` column
+Cardinality `Many to one`
+Cross-filter direction `Single`
+Make this relationship active `checked`
+Assume referential integrity `checked`
+Click `Save`
+
+![newreltables](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/newreltables.png)
+
+Look at the relationship and click `Close`
+
+![closenewrel](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/closenewrel.png)
+
+The tables in the semantic model should now be joined
+
+![join](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/join.png)
+
+If you look at the items in your workspace you will see the MrtTrips Semantic Model
+
+![wsitemssm](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/wsitemssm.png) 
+
+## Shape 6 - Create a New Power BI report with Auto-create Report
 
 You are now ready to build a Power BI report
 
-Click New report on the top bar above the Model
+Click on the three dots to the right of the MrtTrips Semantic model and select `Auto-create Report`
 
-Build a simple PBI report
+![autocreate](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/autocreate.png)
 
-![fabricpbireport](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/fabricpbireport.png)
+You will get this
 
+![acreportsplash](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/acreportsplash.png)
+
+And then the Report with open
+
+![acreport](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/acreport.png)
+
+Click on `Edit report`
+
+![editreport](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/editreport.png)
+
+Lets add a new page to the report when it opens in edit mode
+
+![editreport](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/editreport.png)
+
+Click on the green `+` next to Page 1 on the bottom left
+
+![page1](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/page1.png)
+
+This will add Page 2 
+
+![page2](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/page2.png)
+
+Click on the `dayofweek` column in the `dayofweek` table
+Click on the `passenger_count` column in the `Trips` table
+This should create a table that looks like this
+
+![dowpctable](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/dowpctable.png)
+
+With the table highlighted click on the `Stacked column chart` in the Visualizations
+
+![scc](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/scc.png)
+
+Click on `File> Save Save this report`
+
+![filesave](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/filesave.png)
+
+Enter a name for your report `TripAnalysis` and click `Save`
+
+![tripanalysis](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/tripanalysis.png)
+
+If you look at the items in your workspace you will see the TripAnalysis report
+
+![wsitemsreport](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/wsitemsreport.png) 
+
+## Shape 7 - Automating it all in a pipeline
+
+
+
+**Need to show how all the items can be in the same pipeline**
 
 ## Congrats you have finished the workshop!
