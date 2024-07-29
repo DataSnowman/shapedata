@@ -831,5 +831,15 @@ Click on Save
 
 `Don't do this now but if you run the pipeline it will re-run many of the things you created today`
 
-
 ## Congrats you have finished the workshop!
+
+## If you finish early here are some additional Hands-on Labs
+
+* Lakehouse [Create a Microsoft Fabric Lakehouse](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/01-lakehouse.html?WT.mc_id=academic-114547-leestott)
+* Data Engineering [Analyze data with Apache Spark](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/02-analyze-spark.html?WT.mc_id=academic-114547-leestott)
+* Data Factory [Ingest data with a pipeline in Microsoft Fabric](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/04-ingest-pipeline.html?WT.mc_id=academic-114547-leestott)
+* Data Flows [Create and use Dataflows (Gen2) in Microsoft Fabric](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/05-dataflows-gen2.html?WT.mc_id=academic-114547-leestott)
+* Data Warehouse [Load data into a warehouse using T-SQL](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/06a-data-warehouse-load.html?WT.mc_id=academic-114547-leestott)
+* Data Science [Explore data science in Microsoft Fabric](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/08-data-science-get-started.html?WT.mc_id=academic-114547-leestott)
+
+
