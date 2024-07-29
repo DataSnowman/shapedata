@@ -254,7 +254,7 @@ Count the number of rows using Spark SQL in a Notebook.  To do this click on `Op
 
 Click on the three dots to the right of the table and select `Load data > Spark`
 
-![loadddataspark](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/loadddataspark.png)
+![loaddataspark](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/loaddataspark.png)
 
 This will create a new cell in the Notebook with the following Spark SQL in PySpark:
 
