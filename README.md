@@ -81,7 +81,7 @@ The empty lakehouse should look like this with empty Tables and Files folders
 ![mrttablesfiles](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/mrttablesfiles.png)
 
 
-## Shape 1 - Get zipped files with a Data Factory pipeline and unzip them into the Lakehouse OneLake
+## Shape 1 - Get zipped files with a Data pipeline and unzip them into the Lakehouse OneLake
 
 ### Setup the files in the Lakehouse
 
