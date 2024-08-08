@@ -2,8 +2,6 @@
 
 [Get hands-on experience shaping data with Microsoft Fabric](https://teams.microsoft.com/l/meetup-join/19%3ameeting_MGZmMzQxYmQtYzQ4MS00ODUzLWJjODItZGMwMmMxMzA3MjA2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%22f6b2291d-fd6c-4b36-8288-fba67d2991da%22%7d)
 
-[TEST](https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGMwY2ZmN2EtYTkxYy00MGQyLWI0OTAtNjYxNjAwYjE5MDEy%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%22f6b2291d-fd6c-4b36-8288-fba67d2991da%22%7d)
-
 Welcome to the Shaping data with Microsoft Fabric hands-on experience workshop.  The purpose of the workshop is to bring you up to speed on some of the data shaping tools in the Lakehouse, Data Engineering, Data Factory (Data Integration), Data Science, and Power BI experiences of Microsoft Fabric.  You will be using pre-configured trial resources in this workshop.  Each of you will recieve a userid and password to access the resources.  Please consult your instuctor if you have any questions or blockers.
 
 ### Datasets
