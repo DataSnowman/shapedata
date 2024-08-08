@@ -12,6 +12,8 @@ https://data.gov.tw/dataset/128506
 * The Taipei Mass Rapid Transit (MRT) MRTstations.csv data is from 
 https://en.wikipedia.org/wiki/List_of_railway_and_metro_stations_in_Taiwan
 
+#### `NOTE`: Most of you attending in person will skip this if you are in the workshop on 8/13/2024. Continue in Workshop section below.  But if your are trying this workshop content on your own Fabric Tenant or don't have access to the Fabric Trial Tenant used during the 2 hour workshop (or the date of the workshop has pasted) you can click [here](https://github.com/DataSnowman/shapedata/blob/main/alt/alternativetogetdatasetfiles.md) to get the files and do the workshop in you Fabric Tenant (at work for example).
+
 ### Workshop
 
 The Workshop is broken up into three parts:
