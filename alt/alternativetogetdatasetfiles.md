@@ -7,7 +7,7 @@
 
 ![csv](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/csv.png)
 
-* Clicking on the button will download a csa that has a blob url that you can browse to and download any files available 
+* Clicking on the `CSV` button will download a csv that has multiple blob urls that you can browse to and download any files available 
 
 ![bloburl](https://raw.githubusercontent.com/datasnowman/shapedata/main/images/bloburl.png)
 
@@ -21,3 +21,4 @@
 
 * Skip to the section [Shape 2 - Load the file(s) to Delta/Parquet tables in the Lakehouse using a Spark Notebook](https://github.com/DataSnowman/shapedata/blob/main/README.md#shape-2---load-the-files-to-deltaparquet-tables-in-the-lakehouse-using-a-spark-notebook)
 
+* Continue along with the workshop lab making any modifications for the dates of the data and the language of the column heading and data in the rows.
